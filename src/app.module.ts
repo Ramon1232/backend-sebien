@@ -18,7 +18,7 @@ import { BeneficiariosModule } from './beneficiarios/beneficiarios.module';
         type: 'postgres',
         url: configService.get<string>('DATABASE_URL'),
         entities: [Beneficiario],
-        synchronize: true,
+        synchronize: false,
         logging: true,
         ssl: {
           rejectUnauthorized: false,
