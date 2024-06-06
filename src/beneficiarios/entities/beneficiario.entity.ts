@@ -19,4 +19,6 @@ export class Beneficiario {
     @Column()
     estatus: string;
 
+    @Column()
+    programa: string;
 }
