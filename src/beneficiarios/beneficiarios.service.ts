@@ -23,10 +23,11 @@ export class BeneficiariosService {
   }
 
   async findByCurp(curp: string): Promise<Beneficiario[]> {
-    const beneficiario = await this.beneficiarioRepository.findOne({ where: { curp } });
-    return beneficiario ? [beneficiario] : [];
+    if (!curp) {
+      throw new Error('CURP no provista');
+    }
+    return await this.beneficiarioRepository.find({ where: { curp } });
   }
-  
 
   findOne(id: number) {
     return `This action returns a #${id} beneficiario`;
